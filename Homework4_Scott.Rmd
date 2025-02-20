@@ -1,11 +1,11 @@
 ---
 title: "Homework 4"
-author: "Ryann Liu"
+author: "Ryann Liu (rl35976)"
 date: "2025-02-16"
 output: pdf_document
 ---
-[Link to my Github repo:](https://github.com/ryannrliu/Homework-3-Scott)
-https://github.com/ryannrliu/Homework-3-Scott
+[Link to my Github repo:](https://github.com/ryannrliu/HW4_Scott)
+https://github.com/ryannrliu/HW4_Scott
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
@@ -60,9 +60,11 @@ observed_counts =  c(Group1 = 85, Group2 = 56, Group3 = 59, Group4 = 27, Group5 
 
 tibble(observed = observed_counts, expected = expected_dis*240)
 
+num_members = 240
 chi_stat = function(observed, expected) {
   sum((observed - expected)^2 / expected)
 }
+simulated_counts = rmultinom(1, num_members, expected_dis)
 chi2 = chi_stat(simulated_counts, num_members*expected_dis)
 #Chi-squared statistic simulation
 num_simulations = 100000
